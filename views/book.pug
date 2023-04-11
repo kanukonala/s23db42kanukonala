@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  - let results=[{book_name:"Revolution 2020",year_published:2011,author:"Chetan Bhagat"},{book_name:"Wings of fire",year_published :2012,author:"Tui T. Sutherland"},{book_name:"Quiet",year_published:2012,author:"Susan Cain"}]
+  div(class="container-fluid")
+  div(class="row")
+  each value,index in results
+    div(class="col-sm-2" onclick=`buy(${index})`)  #{value.book_name} book, year_published is #{value.year_published}, with #{value.author}
+  script. 
+    function buy(index)
+    {
+      alert(`You purchased Item ${index+1}`)
+    } 
