@@ -1,5 +1,5 @@
 var book = require('../models/book');
-// List of all Costumes
+// List of all book
 exports.book_list = async function(req, res) {
     try{
     book = await book.find();
@@ -10,6 +10,7 @@ exports.book_list = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
     };
+    
 // for a specific Costume.
 exports.book_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: book detail: ' + req.params.id);
