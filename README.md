@@ -1,13 +1,13 @@
-# s23wb42kanukonala
-Web Apps Lab10
+# s23db42kanukonala
+Web Apps Lab11
 
 
 
-link to remote Render server : https://s23wb42kanukonala.onrender.com
+link to remote Render server : https://s23db42kanukonala.onrender.com
 
 
 ### Class details:
 Book
 book_name - string
-year_published - number
+year_published - string
 author - string     
