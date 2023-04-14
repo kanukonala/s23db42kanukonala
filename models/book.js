@@ -4,7 +4,6 @@ book_name: String,
 year_published: String,
 author: String
 })
-module.exports = mongoose.model("bookCostume",
-bookSchema)
+module.exports = mongoose.model("bookCostume",bookSchema)
 
 

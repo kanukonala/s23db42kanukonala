@@ -2,8 +2,8 @@ var book = require('../models/book');
 // List of all book
 exports.book_list = async function(req, res) {
     try{
-    book = await book.find();
-    res.send(book);
+    thebook = await book.find();
+    res.send(thebook);
     }
     catch(err){
     res.status(500);
@@ -50,7 +50,7 @@ res.send('NOT IMPLEMENTED: book update PUT' + req.params.id);
 exports.book_view_all_Page = async function(req, res) {
     try{
     book = await book.find();
-    res.render('book', { title: 'book Search Results', results: book });
+    res.render('book', { title: 'book Search Results', results: thebook });
     }
     catch(err){
     res.status(500);
