@@ -8,4 +8,7 @@ router.get('/', function(req, res, next) {
 
 });*/
 router.get('/', book_controlers.book_view_all_Page );
+// for a specific Costume.
+// GET request for one costume.
+//router.get('/book/:id', book_controlers.book_detail);
 module.exports = router;
