@@ -8,7 +8,7 @@ block content
       each item,index in items
         - let destination = `dispatch(\"/book/update?id=${item._id}\")`
         div(class="col-sm-2" class="m-1")
-          h3 #{item.book_Name}
+          h3 #{item.book_name}
           p #{item.year_published}
           p #{item.author}
           button.btn( class="btn-primary ml-1", onclick= destination) Update
