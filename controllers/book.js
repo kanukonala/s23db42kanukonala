@@ -89,7 +89,7 @@ failed`);
 // Handle a show all view
 exports.book_view_all_Page = async function(req, res) {
     try{
-    book = await book.find();
+    thebook = await book.find();
     res.render('book', { title: 'book Search Results', results: thebook });
     }
     catch(err){

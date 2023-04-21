@@ -20,13 +20,7 @@ passport.use(new LocalStrategy(
   });
   }
   ));
-  app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-  }));
-  app.use(passport.initialize());
-  app.use(passport.session());
+  
 require('dotenv').config();
 const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
@@ -40,6 +34,7 @@ var bookRouter = require('./routes/book');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
+var book = require("./models/book");
 // passport config
 // Use the existing connection
 // The Account model
@@ -49,7 +44,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 
-var book = require("./models/book");
+
 
 var app = express();
 
@@ -70,6 +65,14 @@ app.use('/board', boardRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
 
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
 //We can seed the collection if needed on server start
 async function recreateDB(){
 // Delete everything
@@ -80,7 +83,7 @@ instance1.save().then( () => {
 }).catch( (e) => {
   console.log('There was an error', e.message);
 });
-}
+
 let instance2 = new
 book({book_name:"Wings of fire",year_published :2012,author:"Tui T. Sutherland"});
 instance2.save().then( () => {
@@ -95,8 +98,12 @@ instance3.save().then( () => {
 }).catch( (e) => {
   console.log('There was an error', e.message);
  });
+
+}
 let reseed = true;
 if (reseed) { recreateDB();}
+
+
 
 
 
